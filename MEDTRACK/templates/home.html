@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>MedTrack - Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f2f6fc;
+        }
+        header {
+            background-color: #0d47a1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #f44336;
+            padding: 8px 15px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .logout:hover {
+            background-color: #d32f2f;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: #333;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            font-size: 1.2rem;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+    <header>
+        <h1>Welcome to MedTrack, {{ username }}!</h1>
+    </header>
+
+    <div class="container">
+        <a href="{{ url_for('book_appointment') }}" class="card">
+            <h2>📅 Book Appointment</h2>
+            <p>Schedule an appointment with your doctor.</p>
+        </a>
+
+        <a href="{{ url_for('contact') }}" class="card">
+            <h2>📞 Contact Us</h2>
+            <p>Reach out to our support team.</p>
+        </a>
+
+        <a href="{{ url_for('doctor_dashboard') }}" class="card">
+            <h2>👨‍⚕ Doctor Dashboard</h2>
+            <p>Access doctor-specific tools and info.</p>
+        </a>
+
+        <a href="{{ url_for('patient_dashboard') }}" class="card">
+            <h2>🧑 Patient Dashboard</h2>
+            <p>Manage your health and appointments.</p>
+        </a>
+
+        <a href="{{ url_for('patient_appointments') }}" class="card">
+            <h2>📋 patient appointment</h2>
+            <p>View or update appointment status.</p>
+        </a>
+
+        <a href="{{ url_for('patient_details') }}" class="card">
+            <h2>📝 Patient Details</h2>
+            <p>View your profile and health information.</p>
+        </a>
+    </div>
+</body>
+</html>

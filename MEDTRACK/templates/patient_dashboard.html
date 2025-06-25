@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6fc;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 {
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stats-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .card {
+            background-color: #0d47a1;
+            color: white;
+            padding: 20px;
+            flex: 1;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #0d47a1;
+            color: white;
+        }
+        a.logout {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            color: #0d47a1;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a.logout:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+
+    <div class="stats-container">
+        <div class="card">
+            <h2>{{ total_appointments }}</h2>
+            <p>Total Appointments</p>
+        </div>
+        <div class="card">
+            <h2>{{ upcoming_appointments }}</h2>
+            <p>Upcoming Appointments</p>
+        </div>
+    </div>
+
+    <h2>Your Upcoming Appointments</h2>
+    {% if upcoming_appointments_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appt in upcoming_appointments_list %}
+            <tr>
+                <td>{{ appt.doctor }}</td>
+                <td>{{ appt.date }}</td>
+                <td>{{ appt.time }}</td>
+                <td>{{ appt.reason or "N/A" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You have no upcoming appointments.</p>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+</body>
+</html>
