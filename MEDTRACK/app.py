@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # AWS setup
-dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 users_table = dynamodb.Table('Users')
 appointments_table = dynamodb.Table('Appointments')
 
