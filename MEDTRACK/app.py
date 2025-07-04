@@ -13,7 +13,7 @@ users_table = dynamodb.Table('Users')
 appointments_table = dynamodb.Table('Appointments')
 
 sns_client = boto3.client('sns', region_name='us-east-1')
-TOPIC_ARN = 'arn:aws:sns:ap-south-1:123456789012:MedTrackTopic'  # Replace with real ARN
+TOPIC_ARN = 'arn:aws:sns:us-east-1:686255958327:Medtrack:e7098b26-9d53-4356-8687-d955eb230ce4'  # Replace with real ARN
 
 # SNS sender
 def send_sns_notification(message, subject='MedTrack Notification'):
