@@ -1,1 +1,1 @@
-https://docs.google.com/document/d/1ssCvfB2IdauAomYVtEzcTiAf031w806E/edit?usp=sharing&ouid=102899667696223313246&rtpof=true&sd=true<img width="1433" height="516" alt="image" src="https://github.com/user-attachments/assets/be724d4c-16fe-4e1b-923b-d946e94bddaf" />
+
